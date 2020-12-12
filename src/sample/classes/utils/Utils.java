@@ -1,4 +1,4 @@
-package sample.classes;
+package sample.classes.utils;
 
 import java.util.Random;
 

@@ -1,4 +1,6 @@
-package sample.classes;
+package sample.gui;
+
+import sample.classes.Scheduler;
 
 public class TLauncher implements Runnable {
     public static Scheduler sc;

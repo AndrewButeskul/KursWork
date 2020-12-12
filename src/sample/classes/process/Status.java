@@ -1,4 +1,4 @@
-package sample.classes;
+package sample.classes.process;
 
 public enum Status {
     Ready,

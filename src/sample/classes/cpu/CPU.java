@@ -1,5 +1,7 @@
-package sample.classes;
+package sample.classes.cpu;
 
+import sample.classes.process.Process;
+import sample.classes.Scheduler;
 import sample.interfaces.ITime;
 
 public class CPU implements ITime

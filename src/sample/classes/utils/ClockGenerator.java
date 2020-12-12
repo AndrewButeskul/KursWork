@@ -1,5 +1,6 @@
-package sample.classes;
+package sample.classes.utils;
 
+import sample.classes.Configuration;
 import sample.interfaces.ITime;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class ClockGenerator extends TimerTask {
         while (true)
         {
             try {
-                Thread.sleep(1000,Configuration.tickIncrement);
+                Thread.sleep(1000, Configuration.tickIncrement);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

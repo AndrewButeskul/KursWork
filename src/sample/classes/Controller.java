@@ -1,6 +1,6 @@
 package sample.classes;
 
-import sample.Main;
+import sample.gui.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,6 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import sample.classes.memory.MemScheduler;
+import sample.classes.process.Process;
+import sample.classes.process.Queue;
+import sample.classes.utils.ClockGenerator;
+import sample.gui.TLauncher;
 
 import java.util.ArrayList;
 

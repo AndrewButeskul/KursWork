@@ -1,4 +1,6 @@
-package sample.classes;
+package sample.classes.memory;
+
+import sample.classes.process.Process;
 
 import java.util.Comparator;
 

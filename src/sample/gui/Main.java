@@ -1,4 +1,4 @@
-package sample;
+package sample.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,16 +21,12 @@ public class Main extends Application {
         FXMLLoader loader =new FXMLLoader(getClass().getResource("window/sample.fxml"));
         Parent root = loader.load();
         controller =  loader.getController();
-        emuThread = new Thread(new sample.classes.TLauncher());
+        emuThread = new Thread(new TLauncher());
 
-
-        stage.setTitle("VTaskViewer");
+        stage.setTitle("Window");
         stage.setScene(new Scene(root, 800, 500));
         stage.show();
-
     }
-
-
     @Override
     public void stop() throws Exception {
         super.stop();

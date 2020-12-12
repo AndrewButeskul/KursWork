@@ -1,4 +1,8 @@
-package sample.classes;
+package sample.classes.process;
+
+import sample.classes.utils.ClockGenerator;
+import sample.classes.Configuration;
+import sample.classes.memory.MemScheduler;
 
 import java.util.ArrayList;
 
@@ -26,7 +30,7 @@ public class Queue {
     public void addProcess(Process p)
     {
         if (p.getStatus() == Status.Waiting)
-            p.setBursTime(p.getBursTime()+(int)(p.getBursTime()/Configuration.ZombieDiv));
+            p.setBursTime(p.getBursTime()+(int)(p.getBursTime()/ Configuration.ZombieDiv));
 
         if(MemScheduler.fillMB(p)) {
             this.queue.add(p);

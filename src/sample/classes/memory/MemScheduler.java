@@ -1,5 +1,8 @@
-package sample.classes;
+package sample.classes.memory;
 
+
+import sample.classes.Configuration;
+import sample.classes.process.Process;
 
 import java.util.ArrayList;
 

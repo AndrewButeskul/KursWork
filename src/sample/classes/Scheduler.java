@@ -1,6 +1,14 @@
 package sample.classes;
 
-import sample.Main;
+import sample.gui.Main;
+import sample.classes.cpu.CPU;
+import sample.classes.memory.MemScheduler;
+import sample.classes.memory.MemoryBlock;
+import sample.classes.process.Process;
+import sample.classes.process.Queue;
+import sample.classes.process.Status;
+import sample.classes.utils.ClockGenerator;
+import sample.classes.utils.Utils;
 import sample.interfaces.ITime;
 
 import java.util.ArrayList;

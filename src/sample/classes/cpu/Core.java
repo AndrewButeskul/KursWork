@@ -1,4 +1,6 @@
-package sample.classes;
+package sample.classes.cpu;
+
+import sample.classes.process.Process;
 
 public class Core {
    public boolean isFree=true;

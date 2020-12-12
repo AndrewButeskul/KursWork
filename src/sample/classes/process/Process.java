@@ -1,4 +1,8 @@
-package sample.classes;
+package sample.classes.process;
+
+import sample.classes.utils.ClockGenerator;
+import sample.classes.Configuration;
+import sample.classes.utils.Utils;
 
 import java.util.Comparator;
 
