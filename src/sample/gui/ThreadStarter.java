@@ -2,7 +2,7 @@ package sample.gui;
 
 import sample.classes.Scheduler;
 
-public class TLauncher implements Runnable {
+public class ThreadStarter implements Runnable {
     public static Scheduler sc;
 
     @Override

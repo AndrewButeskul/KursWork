@@ -18,10 +18,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader =new FXMLLoader(getClass().getResource("window/sample.fxml"));
+        FXMLLoader loader =new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
         controller =  loader.getController();
-        emuThread = new Thread(new TLauncher());
+        emuThread = new Thread(new ThreadStarter());
 
         stage.setTitle("Window");
         stage.setScene(new Scene(root, 800, 500));

@@ -12,7 +12,7 @@ import sample.classes.memory.MemScheduler;
 import sample.classes.process.Process;
 import sample.classes.process.Queue;
 import sample.classes.utils.ClockGenerator;
-import sample.gui.TLauncher;
+import sample.gui.ThreadStarter;
 
 import java.util.ArrayList;
 
@@ -126,7 +126,7 @@ public class Controller {
 
         MemScheduler.clearMem();
         ClockGenerator.clearTime();
-        Main.emuThread = new Thread(new TLauncher());
+        Main.emuThread = new Thread(new ThreadStarter());
         queueTable.setItems(null);
         rejectedTable.setItems(null);
         doneTable.setItems(null);
