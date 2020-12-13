@@ -1,23 +1,29 @@
-package sample.classes;
+package sample.gui;
 
-import sample.gui.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import sample.classes.Configuration;
+import sample.classes.cpu.CPU;
 import sample.classes.memory.MemScheduler;
 import sample.classes.process.Process;
 import sample.classes.process.Queue;
 import sample.classes.utils.ClockGenerator;
-import sample.gui.ThreadStarter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
 public class Controller {
+    public Controller() throws IOException {
+    }
+
     @FXML
     private void initialize()
     {
@@ -72,7 +78,7 @@ public class Controller {
         return _tmp;
     }
 
-    public void updateTable(Queue q, ArrayList<Process> a)
+    public void updateTable(Queue q, ArrayList<Process> a, CPU cpu)
     {
         qTableList.setAll(q.getQueue());
         queueTable.setItems(qTableList);
@@ -85,6 +91,9 @@ public class Controller {
         rejectedTable.refresh();
         doneTable.setItems(dTableList);
         doneTable.refresh();
+
+        if(controllerCore != null)
+            controllerCore.updateCoreList(cpu);
     }
     @FXML
     Button runBTN;
@@ -92,6 +101,10 @@ public class Controller {
     Button pauseBTN;
     @FXML
     Button stopBTN;
+    @FXML
+    Button viewBTN;
+
+    ControllerCore controllerCore;
 
     @FXML
     protected void runBTN_Click()
@@ -131,8 +144,37 @@ public class Controller {
         rejectedTable.setItems(null);
         doneTable.setItems(null);
 
+        if(controllerCore != null)
+            controllerCore.clearCoreList();
+
         pauseBTN.setDisable(true);
         runBTN.setDisable(false);
     }
 
+    public void genCoreAccordion(Accordion accordion)
+    {
+        for(int i = 0; i< Configuration.coreCount; i++)
+        {
+            TableView<Process> p= new TableView<>();
+            p.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            p.setTableMenuButtonVisible(true);
+            p.getColumns().setAll(genQTable());
+            p.setTableMenuButtonVisible(true);
+            p.getColumns().setAll(genQTable());
+            accordion.getPanes().add(new TitledPane());
+            accordion.getPanes().get(i).setText("Core#"+i);
+            accordion.getPanes().get(i).setContent(p);
+        }
+
+    }
+
+    public void viewBTN_click() throws IOException {
+        FXMLLoader loader =new FXMLLoader(getClass().getResource("core.fxml"));
+        Parent root = loader.load();
+        Stage newWindow = new Stage();
+        controllerCore = loader.getController();
+        newWindow.setTitle("Core");
+        newWindow.setScene(new Scene(root, 400, 600));
+        newWindow.show();
+    }
 }

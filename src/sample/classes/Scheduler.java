@@ -93,12 +93,13 @@ public class Scheduler implements ITime {
 
     public void updateTable()
     {
-        Main.controller.updateTable(queue,doneProcesses);}
+        Main.controller.updateTable(queue,doneProcesses,cpu);}
 
     @Override
     public void timerStep() {
         clearOutdated();
         setJobToCPU();
         addJob();
+
     }
 }
